@@ -11,4 +11,11 @@ public interface StanzaService {
 	public Optional<Stanza> selStanzaById(String codStanza);
 	
 	public List<Stanza> selAllStanze(); 
+	
+	public void insStanza (Stanza stanza);
+	
+	public void updStanza (Stanza stanza);
+	
 }
+
+

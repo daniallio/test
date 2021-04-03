@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.daniallio.webapp.entities.Stanza;
@@ -38,6 +40,17 @@ public class StanzaController {
 		
 		return new ResponseEntity<List<StanzaDTO>>(stanzeDTO, HttpStatus.OK);
 
+	}
+	
+	
+	//inserisco una nuova stanza
+	@PostMapping(value = "/inserisci", produces = "application/json")
+	public ResponseEntity<Stanza> insStanza(@RequestBody Stanza stanza) {
+		
+		logger.info("********MEedoto insStanza. Stanza con ID " + stanza.getCodice());
+		service.insStanza(stanza);
+		
+		return new ResponseEntity<Stanza>(stanza,HttpStatus.OK);
 	}
 	
 	

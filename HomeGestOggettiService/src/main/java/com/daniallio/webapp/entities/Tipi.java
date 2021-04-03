@@ -36,7 +36,7 @@ public class Tipi {
 	// relazione una molti con la tabella degli oggetti
 		//un tipo può avere piu oggetti
 		@OneToMany(fetch = FetchType.EAGER, mappedBy = "tipo", cascade = CascadeType.REMOVE, orphanRemoval = true)
-		@JsonManagedReference // solo quando il webservice resituisce un json, punto di partenza nella classe
+		@JsonManagedReference (value="tipo") // solo quando il webservice resituisce un json, punto di partenza nella classe
 								// colllegata invece inserisco JSONBACK
 		private Set<Oggetti> oggetto = new HashSet();
 	

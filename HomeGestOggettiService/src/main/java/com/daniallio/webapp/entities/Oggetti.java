@@ -5,6 +5,7 @@ package com.daniallio.webapp.entities;
 import java.util.Date;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -45,7 +46,7 @@ public class Oggetti {
 	@ManyToOne
 	@EqualsAndHashCode.Exclude //per problema su loombook
 	@JoinColumn(name = "ogg_tipo",referencedColumnName = "tip_code") //name è il nome della colonna FK, reference.. nome della chiave primaria nella tab collegata
-	@JsonBackReference //punto di arrivo che non verrà mostrato se estraggo il json della classe
+	@JsonBackReference (value="tipo") //punto di arrivo che non verrà mostrato se estraggo il json della classe
 	private Tipi tipo;
 	
 	@Column(name = "ogg_data_acq")
@@ -62,7 +63,7 @@ public class Oggetti {
 	@ManyToOne
 	@EqualsAndHashCode.Exclude //per problema su loombook
 	@JoinColumn(name = "ogg_stanza",referencedColumnName = "sta_code") //name è il nome della colonna FK, reference.. nome della chiave primaria nella tab collegata
-	@JsonBackReference //punto di arrivo che non verrà mostrato se estraggo il json della classe
+	@JsonBackReference (value="stanza") //punto di arrivo che non verrà mostrato se estraggo il json della classe
 	private Stanza stanza;
 	
 	
