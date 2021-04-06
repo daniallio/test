@@ -40,7 +40,7 @@ public class Stanza {
 	
 	// relazione una molti con la tabella degli oggetti
 	//una stanza può avere piu oggetti
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "stanza", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "stanza", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonManagedReference (value="stanza")// solo quando il webservice resituisce un json, punto di partenza nella classe
 							// colllegata invece inserisco JSONBACK
 	private Set<Oggetti> oggetto = new HashSet();

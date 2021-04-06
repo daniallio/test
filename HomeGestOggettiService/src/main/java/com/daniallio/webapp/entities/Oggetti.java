@@ -67,4 +67,25 @@ public class Oggetti {
 	private Stanza stanza;
 	
 	
+	
+	public OggettiDTO convertToDTO() {
+		
+	  OggettiDTO oggettoDTO = new OggettiDTO();
+	
+	  oggettoDTO.setCodice(this.codice);
+	  oggettoDTO.setAttivo(this.attivo);
+	  oggettoDTO.setDataAcquisto(this.dataAcquisto);
+	  oggettoDTO.setDescrizione(this.descrizione);
+	  oggettoDTO.setNote(this.note);
+	  oggettoDTO.setValore(this.valore);
+	  oggettoDTO.setTipo(this.tipo.getCodice());
+	  oggettoDTO.setStanza(this.stanza.getCodice());
+	  
+	  return oggettoDTO;
+	  
+	  
+			  
+		
+		
+	}
 }
