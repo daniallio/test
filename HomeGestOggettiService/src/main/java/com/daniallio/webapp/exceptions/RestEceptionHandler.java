@@ -14,7 +14,7 @@ public class RestEceptionHandler {
 
 	//Stanza non trovata
 	@ExceptionHandler(StanzaNotFoundException.class) //inserisco la classe creata che estende exception
-	public ResponseEntity<Object> userNotFoundHandler(StanzaNotFoundException ex){ //nel generico dell'handler inserisco la classe con messaggio ed ID
+	public ResponseEntity<Object> stanzaNotFoundHandler(StanzaNotFoundException ex){ //nel generico dell'handler inserisco la classe con messaggio ed ID
 		
 		
 		//dati che verranno ritornati dall'eccezione
@@ -30,7 +30,7 @@ public class RestEceptionHandler {
 	
 	//Stanza esistente
 	@ExceptionHandler(StanzaExistException.class) //inserisco la classe creata che estende exception
-	public ResponseEntity<Object> userNotFoundHandler(StanzaExistException ex){ //nel generico dell'handler inserisco la classe con messaggio ed ID
+	public ResponseEntity<Object> stanzaExistHandler(StanzaExistException ex){ //nel generico dell'handler inserisco la classe con messaggio ed ID
 		
 		
 		//dati che verranno ritornati dall'eccezione
@@ -42,6 +42,37 @@ public class RestEceptionHandler {
 		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
 		
 	}
+	
+
+	//Tipo già esistente
+	@ExceptionHandler(TipoExistException.class) //inserisco la classe creata che estende exception
+	public ResponseEntity<Object> tipoExistHandler(TipoExistException ex){ //nel generico dell'handler inserisco la classe con messaggio ed ID
+		
+		
+		//dati che verranno ritornati dall'eccezione
+		ErrorResponse error = new ErrorResponse(ex.getMessage(),				
+				HttpStatus.BAD_REQUEST,
+				ZonedDateTime.now());
+	
+		
+		return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+		
+	}
+	
+	//Tipo non esistente
+		@ExceptionHandler(TipoNotFoundException.class) //inserisco la classe creata che estende exception
+		public ResponseEntity<Object> tipoNotFoundHandler(TipoNotFoundException ex){ //nel generico dell'handler inserisco la classe con messaggio ed ID
+			
+			
+			//dati che verranno ritornati dall'eccezione
+			ErrorResponse error = new ErrorResponse(ex.getMessage(),				
+					HttpStatus.BAD_REQUEST,
+					ZonedDateTime.now());
+		
+			
+			return new ResponseEntity<>(error,HttpStatus.BAD_REQUEST);
+			
+		}
 	
 
 	
