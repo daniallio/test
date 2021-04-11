@@ -39,5 +39,22 @@ public class Tipi {
 		@JsonManagedReference (value="tipo") // solo quando il webservice resituisce un json, punto di partenza nella classe
 								// colllegata invece inserisco JSONBACK
 		private Set<Oggetti> oggetto = new HashSet();
+		
+		
+		public  TipiDTO tipiDTO () {
+			
+			
+			
+			TipiDTO tipiDTO = new TipiDTO();
+			
+			tipiDTO.setCodice(this.codice);
+			tipiDTO.setDescrizione(this.descrizione);
+			tipiDTO.setEntity(this.entity);
+			
+			return tipiDTO;
+			
+			
+			
+		}
 	
 }
