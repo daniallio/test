@@ -92,7 +92,7 @@ public class RestEceptionHandler {
 
 		
 		
-		//oggetto non trovato 
+		//oggetto non trovato ex
 		@ExceptionHandler(OggettoNotFoundException.class) //inserisco la classe creata che estende exception
 		public ResponseEntity<Object> oggettoExistHandler(OggettoNotFoundException ex){ //nel generico dell'handler inserisco la classe con messaggio ed ID
 			
