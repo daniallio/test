@@ -97,7 +97,7 @@ public class RestEceptionHandler {
 		public ResponseEntity<Object> oggettoExistHandler(OggettoNotFoundException ex){ //nel generico dell'handler inserisco la classe con messaggio ed ID
 			
 			
-			//dati che verranno ritornati dall'eccezione
+			//dati che verranno ritornati dall'eccezionee
 			ErrorResponse error = new ErrorResponse(ex.getMessage(),				
 					HttpStatus.BAD_REQUEST,
 					ZonedDateTime.now());
